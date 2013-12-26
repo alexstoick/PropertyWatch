@@ -47,7 +47,7 @@
         <!--Property List View-->
         <scene sceneID="4de-gu-7Do">
             <objects>
-                <tableViewController id="bkX-U3-fgs" userLabel="Property List View" sceneMemberID="viewController">
+                <tableViewController id="bkX-U3-fgs" userLabel="Property List View" customClass="PropertyListController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zB5-ul-Vho">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
