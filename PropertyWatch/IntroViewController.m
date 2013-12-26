@@ -7,6 +7,7 @@
 //
 
 #import "IntroViewController.h"
+#import "PropertyDataSource.h"
 
 @interface IntroViewController()
 
@@ -17,6 +18,12 @@
 
 @implementation IntroViewController
 
+-(void)viewDidLoad
+{
+    [[PropertyDataSource getInstance] parsePropertyListWithCompletion:^(BOOL success) {
+        NSLog ( @"got list of properties" ) ;
+    }];
+}
 
 - (IBAction)submitButtonTouchDown:(id)sender {
     
