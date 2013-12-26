@@ -16,8 +16,6 @@
 		7D76221B186C16EB00460957 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D76221A186C16EB00460957 /* AppDelegate.m */; };
 		7D76221E186C16EB00460957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D76221C186C16EB00460957 /* Main.storyboard */; };
 		7D762221186C16EB00460957 /* PropertyWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D76221F186C16EB00460957 /* PropertyWatch.xcdatamodeld */; };
-		7D762224186C16EB00460957 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D762223186C16EB00460957 /* MasterViewController.m */; };
-		7D762227186C16EB00460957 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D762226186C16EB00460957 /* DetailViewController.m */; };
 		7D762229186C16EB00460957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D762228186C16EB00460957 /* Images.xcassets */; };
 		7D762230186C16EB00460957 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76222F186C16EB00460957 /* XCTest.framework */; };
 		7D762231186C16EB00460957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D762208186C16EB00460957 /* Foundation.framework */; };
@@ -25,6 +23,7 @@
 		7D762233186C16EB00460957 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76220E186C16EB00460957 /* CoreData.framework */; };
 		7D76223B186C16EB00460957 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D762239186C16EB00460957 /* InfoPlist.strings */; };
 		7D76223D186C16EB00460957 /* PropertyWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D76223C186C16EB00460957 /* PropertyWatchTests.m */; };
+		7D762248186C17E100460957 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D762247186C17E100460957 /* IntroViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,16 +50,14 @@
 		7D76221A186C16EB00460957 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D76221D186C16EB00460957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D762220186C16EB00460957 /* PropertyWatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PropertyWatch.xcdatamodel; sourceTree = "<group>"; };
-		7D762222186C16EB00460957 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		7D762223186C16EB00460957 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		7D762225186C16EB00460957 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		7D762226186C16EB00460957 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7D762228186C16EB00460957 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D76222E186C16EB00460957 /* PropertyWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropertyWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D76222F186C16EB00460957 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7D762238186C16EB00460957 /* PropertyWatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PropertyWatchTests-Info.plist"; sourceTree = "<group>"; };
 		7D76223A186C16EB00460957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D76223C186C16EB00460957 /* PropertyWatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyWatchTests.m; sourceTree = "<group>"; };
+		7D762246186C17E100460957 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		7D762247186C17E100460957 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +123,8 @@
 				7D762219186C16EB00460957 /* AppDelegate.h */,
 				7D76221A186C16EB00460957 /* AppDelegate.m */,
 				7D76221C186C16EB00460957 /* Main.storyboard */,
-				7D762222186C16EB00460957 /* MasterViewController.h */,
-				7D762223186C16EB00460957 /* MasterViewController.m */,
-				7D762225186C16EB00460957 /* DetailViewController.h */,
-				7D762226186C16EB00460957 /* DetailViewController.m */,
+				7D762246186C17E100460957 /* IntroViewController.h */,
+				7D762247186C17E100460957 /* IntroViewController.m */,
 				7D762228186C16EB00460957 /* Images.xcassets */,
 				7D76221F186C16EB00460957 /* PropertyWatch.xcdatamodeld */,
 				7D762211186C16EB00460957 /* Supporting Files */,
@@ -263,11 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D762227186C16EB00460957 /* DetailViewController.m in Sources */,
-				7D762224186C16EB00460957 /* MasterViewController.m in Sources */,
 				7D76221B186C16EB00460957 /* AppDelegate.m in Sources */,
 				7D762217186C16EB00460957 /* main.m in Sources */,
 				7D762221186C16EB00460957 /* PropertyWatch.xcdatamodeld in Sources */,
+				7D762248186C17E100460957 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

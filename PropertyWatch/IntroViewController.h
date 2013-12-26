@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  IntroViewController.h
 //  PropertyWatch
 //
 //  Created by Stoica Alexandru on 12/26/13.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface IntroViewController : UIViewController
 
 @end
+
