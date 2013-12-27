@@ -12,5 +12,6 @@
 
 @property (strong,nonatomic) NSString *address;
 @property (strong,nonatomic) NSString *thumbnail;
+@property (strong,nonatomic) NSString *description;
 
 @end

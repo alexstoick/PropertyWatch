@@ -8,6 +8,12 @@
 
 #import "PropertyListController.h"
 #import "PropertyDataSource.h"
+#import "Property.h"
+#import "CMPopTipView.h"
+
+@interface PropertyListController()
+
+@end
 
 @implementation PropertyListController
 
@@ -24,16 +30,26 @@
     return [[PropertyDataSource getInstance].propertyList count];
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"pubListTableCell";
-//    PubTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    Pub * currentPub = [PubListDataSource getInstance].pubList[indexPath.row] ;
-//    
-//    cell.titleLabel.text = currentPub.name ;
-//    
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell ;
+    cell = [self.tableView dequeueReusableCellWithIdentifier:@"PropertyTableCell" forIndexPath:indexPath];
+    
+    Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
+    
+    cell.textLabel.text = currentProperty.address;
+    
+    return cell ;
+}
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UIView * accesoryView = [self.tableView cellForRowAtIndexPath:indexPath].accessoryView ;
+    [[self.tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:[UIColor greenColor]];
+    
+    CMPopTipView *popTipView = [[CMPopTipView alloc] initWithMessage:@"My message"];
+    popTipView.animation = CMPopTipAnimationPop;
+    [popTipView presentPointingAtView:accesoryView inView:self.view animated:YES];
+}
 @end

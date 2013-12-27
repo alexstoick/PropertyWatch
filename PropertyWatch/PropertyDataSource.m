@@ -41,42 +41,49 @@ static PropertyDataSource * _propertyDataSource;
 
 -(void)parsePropertyListWithCompletion:(void (^)(BOOL))completionBlock
 {
+    
+    if ( [self.propertyList count] )
+    {
+        completionBlock(YES);
+        return;
+    }
+    
     NSArray * keys = [NSArray arrayWithObjects: @"postcode" ,
                       @"api_key", @"listing_status" , @"page_size" , nil];
     NSArray * values = [NSArray arrayWithObjects: @"WC1", @"4axhtay3kpj7y4397k2nb6a4" ,
                         @"rent" , @"10" , nil] ;
-    NSDictionary * params = [NSDictionary dictionaryWithObjects:keys forKeys:values];
+    NSDictionary * params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 
     NSLog ( @"%@" , params ) ;
     
     NSString * url = @"http://api.zoopla.co.uk/api/v1/property_listings.json" ;
-    NSLog(@"%@",url);
-    [self.manager GET:url parameters:nil
+
+    [self.manager GET:url parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                
-                  
-                  NSLog(@"%@", responseObject) ;
                   NSMutableArray * listings = [NSMutableArray arrayWithArray:
                                                [responseObject valueForKey:@"listing"]] ;
-                  NSLog ( @"%@" , listings ) ;
                   
                   NSMutableArray * propertyArray = [[NSMutableArray alloc] init];
                   
                   for ( NSDictionary * property in listings) {
                       
-                      Property * currentProperty ;
+                      Property * currentProperty = [[Property alloc] init];
                       currentProperty.thumbnail = [property valueForKey:@"thumbnail_url"];
                       currentProperty.address = [property valueForKey:@"displayable_address"] ;
+                      currentProperty.description = [property valueForKey:@"description"];
+                      NSDictionary * rentalPrices = [property valueForKey:@"rentalPrices" ];
                       
-                      [propertyArray addObject:currentProperty] ;
+                      [propertyArray addObject:currentProperty];
                   }
                   
-                  
+                  self.propertyList = propertyArray;
                   completionBlock(YES);
                   
            }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  NSLog ( @"%@" , error ) ;
+                  NSLog ( @"Error : %@" , error ) ;
+                  NSLog ( @"%@" , operation ) ;
                   completionBlock(NO);
            }
      ] ;

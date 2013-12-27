@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA8E01DD0AB94808BC943843"
+               BlueprintIdentifier = "D6630C641EFF437DA80CD69A"
                BuildableName = "libPods-PropertyWatch-AFNetworking.a"
                BlueprintName = "Pods-PropertyWatch-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
