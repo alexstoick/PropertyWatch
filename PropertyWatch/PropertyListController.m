@@ -12,6 +12,7 @@
 #import "PropertyTableViewCell.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "PropertyDetailController.h"
 
 @interface PropertyListController()
 
@@ -67,8 +68,14 @@
     return cell ;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ( [segue.identifier isEqualToString:@"PropertyListToPropertyDetail" ] )
+    {
+        PropertyDetailController * detailController = segue.destinationViewController ;
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow] ;
+        detailController.currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
+    }
     
 }
 

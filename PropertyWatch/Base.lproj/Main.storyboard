@@ -7,7 +7,6 @@
         <!--Intro View-->
         <scene sceneID="f60-cb-Q8u">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DWw-Ko-PNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="yxt-6X-YrG" userLabel="Intro View" customClass="IntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BcR-AJ-vVl"/>
@@ -42,6 +41,7 @@
                         <segue destination="bkX-U3-fgs" kind="push" identifier="transitionToPropertyList" id="Wnh-NX-oqO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWw-Ko-PNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="185"/>
         </scene>
@@ -61,8 +61,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kBu-Yf-3xb">
-                                            <rect key="frame" x="0.0" y="-5" width="67" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBu-Yf-3xb">
+                                            <rect key="frame" x="0.0" y="-5" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="ojf-vO-YDU"/>
@@ -81,8 +81,8 @@
                                                 <constraint firstAttribute="height" constant="21" id="nzA-f4-7Sj"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="164" translatesAutoresizingMaskIntoConstraints="NO" id="psF-MJ-kvh">
-                                            <rect key="frame" x="136" y="6" width="164" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="psF-MJ-kvh">
+                                            <rect key="frame" x="136" y="6" width="131" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <nil key="highlightedColor"/>
@@ -160,7 +160,7 @@
                                     <outlet property="numberOfBedsLabel" destination="X4X-IA-wbH" id="wuH-tT-qnn"/>
                                     <outlet property="priceLabel" destination="vnB-rW-s2E" id="NIc-dq-Qm4"/>
                                     <outlet property="thumbnailView" destination="kBu-Yf-3xb" id="OYy-jn-4OU"/>
-                                    <segue destination="f5h-vb-Csf" kind="push" id="fBz-2L-Nh7"/>
+                                    <segue destination="f5h-vb-Csf" kind="push" identifier="PropertyListToPropertyDetail" id="fBz-2L-Nh7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -169,16 +169,16 @@
                             <outlet property="delegate" destination="bkX-U3-fgs" id="btb-1o-fAE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Property List" id="CKc-Dy-paK"/>
+                    <navigationItem key="navigationItem" title=" List" id="CKc-Dy-paK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhA-lh-C8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="667" y="185"/>
         </scene>
-        <!--View Controller-->
+        <!--Property Detail Controller - Property Detail-->
         <scene sceneID="fW5-Yd-Qa0">
             <objects>
-                <viewController id="f5h-vb-Csf" sceneMemberID="viewController">
+                <viewController id="f5h-vb-Csf" customClass="PropertyDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yAu-Q8-E8i"/>
                         <viewControllerLayoutGuide type="bottom" id="Y7j-l6-KJL"/>
@@ -186,9 +186,84 @@
                     <view key="view" contentMode="scaleToFill" id="b8u-yQ-OcU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ply-Fa-1b1">
+                                <rect key="frame" x="0.0" y="64" width="320" height="231"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="231" id="EaV-8j-e6V"/>
+                                    <constraint firstAttribute="width" constant="320" id="ZAN-n3-aQU"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO3-kh-tpR">
+                                <rect key="frame" x="0.0" y="391" width="320" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="tra-kJ-Pd0"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bed" translatesAutoresizingMaskIntoConstraints="NO" id="Nii-GZ-hpn">
+                                <rect key="frame" x="0.0" y="304" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 beds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7I-Kc-aTc">
+                                <rect key="frame" x="25" y="304" width="57" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bathroom" translatesAutoresizingMaskIntoConstraints="NO" id="kfQ-Rv-seV">
+                                <rect key="frame" x="90" y="306" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 bathrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvF-pT-DTC">
+                                <rect key="frame" x="118" y="305" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_location" translatesAutoresizingMaskIntoConstraints="NO" id="8ck-9i-eZc">
+                                <rect key="frame" x="0.0" y="334" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="239" translatesAutoresizingMaskIntoConstraints="NO" id="knw-JB-Bb7">
+                                <rect key="frame" x="28" y="315" width="239" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="jbj-jX-hAF">
+                                <rect key="frame" x="0.0" y="363" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjR-OQ-ECv">
+                                <rect key="frame" x="25" y="362" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JHs-fx-TaZ"/>
+                    <navigationItem key="navigationItem" title="Property Detail" id="JHs-fx-TaZ"/>
+                    <connections>
+                        <outlet property="addressImage" destination="8ck-9i-eZc" id="eBH-jY-30E"/>
+                        <outlet property="addressLabel" destination="knw-JB-Bb7" id="rjy-Lt-PKf"/>
+                        <outlet property="bathroomImage" destination="kfQ-Rv-seV" id="sFd-Iv-2bt"/>
+                        <outlet property="bedroomImage" destination="Nii-GZ-hpn" id="MXT-xi-rZ6"/>
+                        <outlet property="descriptionText" destination="GO3-kh-tpR" id="blK-8u-dpG"/>
+                        <outlet property="mainImage" destination="Ply-Fa-1b1" id="7hb-oK-2sX"/>
+                        <outlet property="numberOfBathroomsLabel" destination="qvF-pT-DTC" id="t5B-m7-xmJ"/>
+                        <outlet property="numberOfBedroomsLabel" destination="F7I-Kc-aTc" id="RwN-Da-nmM"/>
+                        <outlet property="priceImage" destination="jbj-jX-hAF" id="X0Q-Nq-eJT"/>
+                        <outlet property="priceLabel" destination="EjR-OQ-ECv" id="Qlx-VA-nJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReG-ET-kYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +272,6 @@
         <!--Navigation Controller-->
         <scene sceneID="R1y-mL-GNv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Eq-bc-bLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1pf-el-DJx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IdM-mQ-iOA">
@@ -212,6 +286,7 @@
                         <segue destination="yxt-6X-YrG" kind="relationship" relationship="rootViewController" id="YMg-7c-B62"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Eq-bc-bLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-364" y="185"/>
         </scene>
@@ -221,6 +296,7 @@
         <image name="bed" width="50" height="50"/>
         <image name="imgTint" width="100" height="100"/>
         <image name="map_location" width="50" height="50"/>
+        <image name="money" width="50" height="50"/>
     </resources>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
