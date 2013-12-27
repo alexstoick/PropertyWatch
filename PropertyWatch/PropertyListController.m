@@ -14,10 +14,17 @@
 
 @interface PropertyListController()
 
+@property (strong,nonatomic) NSIndexPath * selectedRow ;
+
 @end
 
 @implementation PropertyListController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.selectedRow = nil ;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -35,39 +42,55 @@
 {
     PropertyTableViewCell * cell ;
     cell = [self.tableView dequeueReusableCellWithIdentifier:@"PropertyTableCell" forIndexPath:indexPath];
-    [cell.detailButton addTarget:self action:@selector(didSelectInformationButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.detailButton addTarget:self action:@selector(didSelectInformationButton:) forControlEvents:UIControlEventTouchUpInside];
     
     Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
     
     cell.textLabel.text = currentProperty.address;
+    cell.descriptionLabel.text = currentProperty.rent_a_week;
     [cell.detailButton setTitle:@"i" forState:UIControlStateNormal] ;
-    
     return cell ;
 }
 
-- (void)didSelectInformationButton:(UIButton *)detailButton
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    CGPoint buttonPosition = [detailButton convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
-    Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
-    CMPopTipView *popTipView = [[CMPopTipView alloc] initWithMessage:currentProperty.address];
-    popTipView.animation = CMPopTipAnimationPop;
-    
-    [popTipView presentPointingAtView:detailButton inView:self.view animated:YES];
-    
-    [NSTimer scheduledTimerWithTimeInterval:1.0
-                                     target:self
-                                   selector:@selector(dismissTooltip:)
-                                   userInfo:nil
-                                    repeats:NO];
+    self.selectedRow = nil ;
+    PropertyTableViewCell * cell = (PropertyTableViewCell* )[tableView cellForRowAtIndexPath:indexPath] ;
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    cell.descriptionLabel.hidden = YES ;
+    [self.tableView reloadData];
 }
 
--(void) dismissTooltip:(NSTimer*)timer
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // [self.popTipView dismissAnimated:YES];
+    if ( self.selectedRow && self.selectedRow.row == indexPath.row)
+    {
+        //actually need to hide
+        NSLog(@"uat");
+        PropertyTableViewCell * cell = (PropertyTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] ;
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
+        cell.descriptionLabel.hidden=YES;
+        self.selectedRow = nil ;
+        [self.tableView reloadData];
+        return ;
+    }
+    self.selectedRow = indexPath ;
+    PropertyTableViewCell * cell = (PropertyTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] ;
+    cell.descriptionLabel.hidden = NO;
+
+    [self.tableView reloadData];
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( self.selectedRow && indexPath.row == self.selectedRow.row )
+    {
+        return 75;
+    }
+    return 40 ;
+}
 
 @end
