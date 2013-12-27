@@ -57,6 +57,8 @@ static PropertyDataSource * _propertyDataSource;
     NSLog ( @"%@" , params ) ;
     
     NSString * url = @"http://api.zoopla.co.uk/api/v1/property_listings.json" ;
+    
+    url = @"http://localhost/date.json";
 
     [self.manager GET:url parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -76,6 +78,7 @@ static PropertyDataSource * _propertyDataSource;
                       currentProperty.image_url = [property valueForKey:@"image_url"];
                       currentProperty.number_of_bedrooms = [[property valueForKey:@"num_of_bedrooms"] integerValue];
                       currentProperty.details_url = [property valueForKey:@"details_url"];
+                      currentProperty.street_name = [property valueForKey:@"street_name"];
                       
                       NSDictionary * rentalPrices = [property valueForKey:@"rental_prices" ];
                       currentProperty.rent_a_week = [[rentalPrices valueForKey:@"per_week"] integerValue];

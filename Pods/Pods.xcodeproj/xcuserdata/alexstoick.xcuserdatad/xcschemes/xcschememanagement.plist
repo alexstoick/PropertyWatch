@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PropertyWatch-CMPopTipView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PropertyWatch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>060CF549A0094141B96D8810</key>
+		<key>7C40C180B586476A905C8DBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90488C114C164FB09C0ED707</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D6630C641EFF437DA80CD69A</key>
+		<key>BAF978FED632436B89270DA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

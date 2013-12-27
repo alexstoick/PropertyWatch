@@ -18,5 +18,6 @@
 @property (strong,nonatomic) NSString  * short_description;
 @property (strong,nonatomic) NSString  * image_url ;
 @property (strong,nonatomic) NSString  * details_url ;
+@property (strong,nonatomic) NSString  * street_name ;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "PropertyTableViewCell.h"
-#import "CMPopTipView.h"
 
 @interface PropertyTableViewCell()
 

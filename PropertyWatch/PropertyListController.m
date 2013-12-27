@@ -9,22 +9,15 @@
 #import "PropertyListController.h"
 #import "PropertyDataSource.h"
 #import "Property.h"
-#import "CMPopTipView.h"
 #import "PropertyTableViewCell.h"
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PropertyListController()
-
-@property (strong,nonatomic) NSIndexPath * selectedRow ;
 
 @end
 
 @implementation PropertyListController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.selectedRow = nil ;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -45,10 +38,33 @@
     
     Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
     
-    cell.textLabel.text = currentProperty.address;
+    cell.textLabel.text = currentProperty.street_name;
     cell.detailLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.rent_a_week ];
-
+    
+    cell.numberOfBedsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms] ;
+    cell.adressLabel.text = currentProperty.address;
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:currentProperty.image_url]];
+    
+    [request addValue:@"image/jpeg" forHTTPHeaderField:@"Accept"];
+    
+    [cell.imageView setImageWithURLRequest:request
+                     placeholderImage:[UIImage imageNamed:@"blank"]
+                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                  cell.imageView.image = image;
+                              }
+                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                  NSLog(@"Error for image processing: %@" , error);
+                              }];
+    
+    
     return cell ;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 
