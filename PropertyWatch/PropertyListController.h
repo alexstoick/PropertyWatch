@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PropertyTableViewCell.h"
 
 @interface PropertyListController : UITableViewController
 
