@@ -140,8 +140,8 @@
 			children = (
 				7DAC082F186C1F8200DF7313 /* Data Sources */,
 				7DAC082E186C1F7800DF7313 /* Models */,
-				7D76224D186C1AA000460957 /* PropertyListController.m */,
 				7D76224C186C1AA000460957 /* PropertyListController.h */,
+				7D76224D186C1AA000460957 /* PropertyListController.m */,
 				7D762219186C16EB00460957 /* AppDelegate.h */,
 				7D76221A186C16EB00460957 /* AppDelegate.m */,
 				7D76221C186C16EB00460957 /* Main.storyboard */,

@@ -69,10 +69,16 @@ static PropertyDataSource * _propertyDataSource;
                   for ( NSDictionary * property in listings) {
                       
                       Property * currentProperty = [[Property alloc] init];
-                      currentProperty.thumbnail = [property valueForKey:@"thumbnail_url"];
+                      currentProperty.thumbnail_url = [property valueForKey:@"thumbnail_url"];
                       currentProperty.address = [property valueForKey:@"displayable_address"] ;
                       currentProperty.description = [property valueForKey:@"description"];
-                      NSDictionary * rentalPrices = [property valueForKey:@"rentalPrices" ];
+                      currentProperty.short_description = [property valueForKey:@"short_description"];
+                      currentProperty.image_url = [property valueForKey:@"image_url"];
+                      currentProperty.number_of_bedrooms = [[property valueForKey:@"num_of_bedrooms"] integerValue];
+                      currentProperty.details_url = [property valueForKey:@"details_url"];
+                      
+                      NSDictionary * rentalPrices = [property valueForKey:@"rental_prices" ];
+                      currentProperty.rent_a_week = [[rentalPrices valueForKey:@"per_week"] integerValue];
                       
                       [propertyArray addObject:currentProperty];
                   }

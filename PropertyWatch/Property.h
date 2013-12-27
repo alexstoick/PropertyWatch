@@ -10,8 +10,13 @@
 
 @interface Property : NSObject
 
-@property (strong,nonatomic) NSString *address;
-@property (strong,nonatomic) NSString *thumbnail;
-@property (strong,nonatomic) NSString *description;
+@property (strong,nonatomic) NSString  * address;
+@property (strong,nonatomic) NSString  * thumbnail_url;
+@property (strong,nonatomic) NSString  * description;
+@property (assign,nonatomic) NSInteger   rent_a_week;
+@property (assign,nonatomic) NSInteger   number_of_bedrooms;
+@property (strong,nonatomic) NSString  * short_description;
+@property (strong,nonatomic) NSString  * image_url ;
+@property (strong,nonatomic) NSString  * details_url ;
 
 @end
