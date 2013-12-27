@@ -38,27 +38,32 @@
     
     Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
     
-    cell.textLabel.text = currentProperty.street_name;
-    cell.detailLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.rent_a_week ];
+    cell.titleLabel.text = currentProperty.street_name;
+    cell.priceLabel.text = [NSString stringWithFormat:@"%d£" , currentProperty.rent_a_week ];
     
     cell.numberOfBedsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms] ;
     cell.adressLabel.text = currentProperty.address;
-    
+    if ( currentProperty.number_of_bathrooms != 0 )
+        cell.numberOfBathroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bathrooms];
+    else
+    {
+        cell.bathroomImage.hidden=YES;
+        cell.numberOfBathroomsLabel.hidden=YES;
+    }
+
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:currentProperty.image_url]];
     
     [request addValue:@"image/jpeg" forHTTPHeaderField:@"Accept"];
     
-    [cell.imageView setImageWithURLRequest:request
+    [cell.thumbnailView setImageWithURLRequest:request
                      placeholderImage:[UIImage imageNamed:@"blank"]
                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                  cell.imageView.image = image;
+                                  cell.thumbnailView.image = image;
                               }
                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                   NSLog(@"Error for image processing: %@" , error);
                               }];
-    
-    
     return cell ;
 }
 

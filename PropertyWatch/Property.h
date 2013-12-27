@@ -19,5 +19,6 @@
 @property (strong,nonatomic) NSString  * image_url ;
 @property (strong,nonatomic) NSString  * details_url ;
 @property (strong,nonatomic) NSString  * street_name ;
+@property (assign,nonatomic) NSInteger   number_of_bathrooms;
 
 @end

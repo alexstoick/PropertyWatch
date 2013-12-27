@@ -76,9 +76,10 @@ static PropertyDataSource * _propertyDataSource;
                       currentProperty.description = [property valueForKey:@"description"];
                       currentProperty.short_description = [property valueForKey:@"short_description"];
                       currentProperty.image_url = [property valueForKey:@"image_url"];
-                      currentProperty.number_of_bedrooms = [[property valueForKey:@"num_of_bedrooms"] integerValue];
+                      currentProperty.number_of_bedrooms = [[property valueForKey:@"num_bedrooms"] integerValue];
                       currentProperty.details_url = [property valueForKey:@"details_url"];
                       currentProperty.street_name = [property valueForKey:@"street_name"];
+                      currentProperty.number_of_bathrooms = [[property valueForKey:@"num_bathrooms"] integerValue];
                       
                       NSDictionary * rentalPrices = [property valueForKey:@"rental_prices" ];
                       currentProperty.rent_a_week = [[rentalPrices valueForKey:@"per_week"] integerValue];

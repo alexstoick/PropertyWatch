@@ -29,6 +29,7 @@
 		7DAC082A186C1F1F00DF7313 /* PropertyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC0829186C1F1F00DF7313 /* PropertyDataSource.m */; };
 		7DAC082D186C1F4800DF7313 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC082C186C1F4800DF7313 /* Property.m */; };
 		7DAC0832186D9D5B00DF7313 /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC0831186D9D5B00DF7313 /* PropertyTableViewCell.m */; };
+		7DAC0835186E241000DF7313 /* PropertyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC0834186E241000DF7313 /* PropertyDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		7DAC082C186C1F4800DF7313 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		7DAC0830186D9D5B00DF7313 /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTableViewCell.h; sourceTree = "<group>"; };
 		7DAC0831186D9D5B00DF7313 /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyTableViewCell.m; sourceTree = "<group>"; };
+		7DAC0833186E241000DF7313 /* PropertyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyDetailViewController.h; sourceTree = "<group>"; };
+		7DAC0834186E241000DF7313 /* PropertyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyDetailViewController.m; sourceTree = "<group>"; };
 		8AF3B42422BD4FC5AF8DA7FF /* Pods-PropertyWatch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyWatch.xcconfig"; path = "Pods/Pods-PropertyWatch.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +145,8 @@
 				7DAC082E186C1F7800DF7313 /* Models */,
 				7D76224C186C1AA000460957 /* PropertyListController.h */,
 				7D76224D186C1AA000460957 /* PropertyListController.m */,
+				7DAC0833186E241000DF7313 /* PropertyDetailViewController.h */,
+				7DAC0834186E241000DF7313 /* PropertyDetailViewController.m */,
 				7D762219186C16EB00460957 /* AppDelegate.h */,
 				7D76221A186C16EB00460957 /* AppDelegate.m */,
 				7D76221C186C16EB00460957 /* Main.storyboard */,
@@ -342,6 +347,7 @@
 				7DAC082D186C1F4800DF7313 /* Property.m in Sources */,
 				7DAC082A186C1F1F00DF7313 /* PropertyDataSource.m in Sources */,
 				7D762221186C16EB00460957 /* PropertyWatch.xcdatamodeld in Sources */,
+				7DAC0835186E241000DF7313 /* PropertyDetailViewController.m in Sources */,
 				7D762248186C17E100460957 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

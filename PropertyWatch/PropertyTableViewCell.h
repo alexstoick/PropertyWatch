@@ -10,11 +10,14 @@
 
 @interface PropertyTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (weak, nonatomic) IBOutlet UILabel *adressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfBedsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfBathroomsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *bathroomImage;
+@property (weak, nonatomic) IBOutlet UIImageView *bedroomImage;
 
 
 @end
