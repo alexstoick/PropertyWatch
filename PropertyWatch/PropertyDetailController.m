@@ -17,10 +17,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bathroomImage;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfBathroomsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *addressImage;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UITextView *addressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *priceImage;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UITableViewCell *descriptionTableCell;
+@property (strong, nonatomic) IBOutlet UITableView *detailTable;
 
 @end
 
@@ -57,7 +59,47 @@
     }
     
     self.descriptionText.text = currentProperty.description ;
-    
+    self.descriptionText.scrollEnabled = NO;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section)
+    {
+        case 0: return 231; break ;
+        case 1: {
+            if ( indexPath.row == 1 )
+            {
+                //check if have the bathroom sign enabled
+                if ( self.bathroomImage.hidden )
+                {
+                    return 0 ;
+                }
+            }
+            if ( indexPath.row == 3 )
+            {
+                //make it large enough to fit the address bar
+                CGSize textViewSize = [self.addressLabel sizeThatFits:CGSizeMake(self.addressLabel.frame.size.width, FLT_MAX)];
+                CGRect newFrame = self.addressLabel.frame ;
+                newFrame.size = textViewSize ;
+                [self.addressLabel setFrame:newFrame];
+                if ( textViewSize.height < 44 )
+                    return 44 ;
+                else
+                    return textViewSize.height ;
+            }
+            return 44 ; break ;
+
+        }
+        case 2: {
+            CGSize textViewSize = [self.descriptionText sizeThatFits:CGSizeMake(self.descriptionText.frame.size.width, FLT_MAX)];
+            CGRect newFrame = self.descriptionText.frame ;
+            newFrame.size = textViewSize ;
+            [self.descriptionText setFrame:newFrame];
+            return textViewSize.height ;
+        }
+    }
+    return 44 ;
 }
 
 @end

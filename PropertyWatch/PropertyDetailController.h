@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Property.h"
 
-@interface PropertyDetailController : UIViewController
+@interface PropertyDetailController : UITableViewController
 
 @property (strong,nonatomic) Property * currentProperty ;
 

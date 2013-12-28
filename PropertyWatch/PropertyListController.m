@@ -20,6 +20,11 @@
 
 @implementation PropertyListController
 
+-(void)viewDidLoad
+{
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -39,11 +44,10 @@
     
     Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
     
-    cell.titleLabel.text = currentProperty.street_name;
     cell.priceLabel.text = [NSString stringWithFormat:@"%d£" , currentProperty.rent_a_week ];
     
     cell.numberOfBedsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms] ;
-    cell.adressLabel.text = currentProperty.address;
+    cell.adressLabel.text = currentProperty.street_name;
     if ( currentProperty.number_of_bathrooms != 0 )
         cell.numberOfBathroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bathrooms];
     else
