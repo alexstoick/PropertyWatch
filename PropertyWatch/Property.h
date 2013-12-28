@@ -20,5 +20,7 @@
 @property (strong,nonatomic) NSString  * details_url ;
 @property (strong,nonatomic) NSString  * street_name ;
 @property (assign,nonatomic) NSInteger   number_of_bathrooms;
+@property (strong,nonatomic) NSString  * agentName ;
+@property (strong,nonatomic) NSString  * agentPhoneNo ;
 
 @end

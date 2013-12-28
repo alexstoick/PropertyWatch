@@ -327,6 +327,67 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="AGENT INFORMATION" id="gWb-fq-81A">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GlV-Z0-p6v" userLabel="Agent Name">
+                                        <rect key="frame" x="0.0" y="1261" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GlV-Z0-p6v" id="uB3-2u-0LJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agent name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-dp-PQS">
+                                                    <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0ed-v3-giy" userLabel="Phone no of agency">
+                                        <rect key="frame" x="0.0" y="1305" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ed-v3-giy" id="e79-fQ-JEg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-mr-wnj">
+                                                    <rect key="frame" x="48" y="11" width="252" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Ptu-M6-jAt">
+                                                    <rect key="frame" x="20" y="12" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uNp-wV-LUG" userLabel="Phone no of agency">
+                                        <rect key="frame" x="0.0" y="1349" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNp-wV-LUG" id="hHk-nW-g9y">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMw-Wk-z3g">
+                                                    <rect key="frame" x="48" y="11" width="252" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="zPb-7T-gWI">
+                                                    <rect key="frame" x="20" y="12" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="0ob-0a-tOC" id="0Mi-5c-5Hf"/>
@@ -338,6 +399,8 @@
                     <connections>
                         <outlet property="addressImage" destination="Rrj-vb-RJV" id="wY5-3f-Gv4"/>
                         <outlet property="addressLabel" destination="JGD-7T-TOB" id="Kxf-fc-mVe"/>
+                        <outlet property="agentNameLabel" destination="dbr-dp-PQS" id="qCh-m8-2x9"/>
+                        <outlet property="agentPhoneLabel" destination="wFb-mr-wnj" id="r03-qm-MKP"/>
                         <outlet property="bathroomImage" destination="EXW-Up-xnX" id="vKc-rG-lxX"/>
                         <outlet property="bedroomImage" destination="0gr-qs-OIL" id="xVh-gN-vST"/>
                         <outlet property="descriptionTableCell" destination="gn1-Jx-Mtk" id="YSx-c6-1N9"/>
@@ -346,13 +409,14 @@
                         <outlet property="mainImage" destination="BtV-NJ-ueD" id="ZIE-Wh-P8h"/>
                         <outlet property="numberOfBathroomsLabel" destination="E3u-jp-wHV" id="lit-cr-w8r"/>
                         <outlet property="numberOfBedroomsLabel" destination="ItJ-MG-gaE" id="oCm-DM-EF3"/>
+                        <outlet property="phoneImage" destination="Ptu-M6-jAt" id="Zmc-FB-2ln"/>
                         <outlet property="priceImage" destination="oeL-t0-Hpi" id="ObZ-h4-ZJr"/>
                         <outlet property="priceLabel" destination="XQA-Ig-niy" id="Ig1-Zu-yTw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9L-rD-pnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="532"/>
+            <point key="canvasLocation" x="1208" y="345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R1y-mL-GNv">
@@ -382,6 +446,7 @@
         <image name="imgTint" width="100" height="100"/>
         <image name="map_location" width="50" height="50"/>
         <image name="money" width="50" height="50"/>
+        <image name="phone" width="50" height="50"/>
     </resources>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

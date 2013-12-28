@@ -24,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *descriptionTableCell;
 @property (strong, nonatomic) IBOutlet UITableView *detailTable;
 
+@property (weak, nonatomic) IBOutlet UILabel *agentNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *agentPhoneLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *phoneImage;
+
+
 @end
 
 @implementation PropertyDetailController
@@ -46,9 +51,11 @@
                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                            NSLog(@"Error for image processing: %@" , error);
                                        }];
-    self.priceLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.rent_a_week];
+    self.priceLabel.text = [NSString stringWithFormat:@"%d£" , currentProperty.rent_a_week];
     self.addressLabel.text = currentProperty.address;
     self.numberOfBedroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms];
+    self.agentNameLabel.text = currentProperty.agentName ;
+    self.agentPhoneLabel.text = currentProperty.agentPhoneNo ;
     
     if ( currentProperty.number_of_bathrooms != 0 )
         self.numberOfBathroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bathrooms];
@@ -61,6 +68,18 @@
     self.descriptionText.text = currentProperty.description ;
     self.descriptionText.scrollEnabled = NO;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( indexPath.section == 3 && indexPath.row == 1 )
+    {
+        NSString * phoneNumber =
+            [self.currentProperty.agentPhoneNo stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]]];
+    }
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
