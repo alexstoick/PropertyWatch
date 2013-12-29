@@ -82,6 +82,9 @@ static PropertyDataSource * _propertyDataSource;
                       currentProperty.number_of_bathrooms = [[property valueForKey:@"num_bathrooms"] integerValue];
                       currentProperty.agentName = [property valueForKey:@"agent_name"];
                       currentProperty.agentPhoneNo = [property valueForKey:@"agent_phone"];
+                      currentProperty.longitude = [[property valueForKey:@"longtitude"] floatValue] ;
+                      currentProperty.latitude = [[property valueForKey:@"latitude"] floatValue];
+                      
                       
                       NSDictionary * rentalPrices = [property valueForKey:@"rental_prices" ];
                       currentProperty.rent_a_week = [[rentalPrices valueForKey:@"per_week"] integerValue];

@@ -8,6 +8,7 @@
 
 #import "PropertyDetailController.h"
 #import "UIImageView+AFNetworking.h"
+#import "MapViewController.h"
 
 @interface PropertyDetailController()
 
@@ -120,5 +121,17 @@
     }
     return 44 ;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ( [segue.identifier isEqualToString:@"PropertyDetailToMapView" ] )
+    {
+        MapViewController * mapView = segue.destinationViewController ;
+        mapView.currentProperty = self.currentProperty ;
+    }
+    
+}
+
+
 
 @end

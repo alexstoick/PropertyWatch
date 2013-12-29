@@ -177,6 +177,34 @@
             </objects>
             <point key="canvasLocation" x="647" y="201"/>
         </scene>
+        <!--Map View Controller - Location-->
+        <scene sceneID="fMr-4T-RW6">
+            <objects>
+                <viewController id="Lbe-Qt-wSB" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Xp-Un-XJg"/>
+                        <viewControllerLayoutGuide type="bottom" id="rPo-z0-SDP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AIW-pN-g89">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jU0-jo-2UM">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Location" id="Wcl-Pr-2xh"/>
+                    <connections>
+                        <outlet property="mapView" destination="jU0-jo-2UM" id="b78-lj-FYT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-MN-xDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="201"/>
+        </scene>
         <!--Property Detail Controller - Property Detail-->
         <scene sceneID="0qO-nD-5Ir">
             <objects>
@@ -196,7 +224,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BtV-NJ-ueD">
-                                                    <rect key="frame" x="0.0" y="-1" width="320" height="231"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="231"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -235,7 +263,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bathroom" translatesAutoresizingMaskIntoConstraints="NO" id="EXW-Up-xnX">
-                                                    <rect key="frame" x="8" y="12" width="20" height="20"/>
+                                                    <rect key="frame" x="6" y="12" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 bathrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3u-jp-wHV">
@@ -269,22 +297,22 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="35" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="zhJ-t1-SqI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="zhJ-t1-SqI">
                                         <rect key="frame" x="0.0" y="510" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zhJ-t1-SqI" id="EAc-rd-kgc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="map_location" translatesAutoresizingMaskIntoConstraints="NO" id="Rrj-vb-RJV">
                                                     <rect key="frame" x="6" y="7" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="CEd-K2-FCw"/>
-                                                        <constraint firstAttribute="width" constant="20" id="KDe-Hx-CT4"/>
+                                                        <constraint firstAttribute="height" constant="20" id="GSB-p5-ulm"/>
+                                                        <constraint firstAttribute="width" constant="20" id="q3B-CD-eJE"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum Lorem ipsum Lorem ipsum" translatesAutoresizingMaskIntoConstraints="NO" id="JGD-7T-TOB">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum Lorem ipsum Lorem ipsum" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGD-7T-TOB">
                                                     <rect key="frame" x="34" y="0.0" width="266" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -294,6 +322,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="Lbe-Qt-wSB" kind="push" identifier="PropertyDetailToMapView" id="3jS-ic-J5r"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -366,26 +397,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uNp-wV-LUG" userLabel="Phone no of agency">
-                                        <rect key="frame" x="0.0" y="1349" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNp-wV-LUG" id="hHk-nW-g9y">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMw-Wk-z3g">
-                                                    <rect key="frame" x="48" y="11" width="252" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="zPb-7T-gWI">
-                                                    <rect key="frame" x="20" y="12" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -416,7 +427,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9L-rD-pnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208" y="345"/>
+            <point key="canvasLocation" x="1128" y="201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R1y-mL-GNv">

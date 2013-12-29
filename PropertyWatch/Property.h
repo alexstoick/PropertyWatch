@@ -22,5 +22,7 @@
 @property (assign,nonatomic) NSInteger   number_of_bathrooms;
 @property (strong,nonatomic) NSString  * agentName ;
 @property (strong,nonatomic) NSString  * agentPhoneNo ;
+@property (assign,nonatomic) CGFloat     latitude ;
+@property (assign,nonatomic) CGFloat     longitude ;
 
 @end
