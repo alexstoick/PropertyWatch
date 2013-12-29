@@ -32,6 +32,7 @@
 		7DAC083B186E24D000DF7313 /* PropertyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC083A186E24D000DF7313 /* PropertyDetailController.m */; };
 		7DF29565187022F800E6214A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF29564187022F800E6214A /* MapKit.framework */; };
 		7DF29568187024F400E6214A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF29567187024F400E6214A /* MapViewController.m */; };
+		7DF2956B1870310200E6214A /* Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF2956A1870310200E6214A /* Zone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		7DF29564187022F800E6214A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7DF29566187024F400E6214A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7DF29567187024F400E6214A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		7DF295691870310200E6214A /* Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zone.h; sourceTree = "<group>"; };
+		7DF2956A1870310200E6214A /* Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zone.m; sourceTree = "<group>"; };
 		8AF3B42422BD4FC5AF8DA7FF /* Pods-PropertyWatch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyWatch.xcconfig"; path = "Pods/Pods-PropertyWatch.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +205,8 @@
 		7DAC082E186C1F7800DF7313 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7DF295691870310200E6214A /* Zone.h */,
+				7DF2956A1870310200E6214A /* Zone.m */,
 				7DAC082B186C1F4800DF7313 /* Property.h */,
 				7DAC082C186C1F4800DF7313 /* Property.m */,
 			);
@@ -357,6 +362,7 @@
 				7DAC082D186C1F4800DF7313 /* Property.m in Sources */,
 				7DAC082A186C1F1F00DF7313 /* PropertyDataSource.m in Sources */,
 				7DF29568187024F400E6214A /* MapViewController.m in Sources */,
+				7DF2956B1870310200E6214A /* Zone.m in Sources */,
 				7D762221186C16EB00460957 /* PropertyWatch.xcdatamodeld in Sources */,
 				7D762248186C17E100460957 /* IntroViewController.m in Sources */,
 			);
