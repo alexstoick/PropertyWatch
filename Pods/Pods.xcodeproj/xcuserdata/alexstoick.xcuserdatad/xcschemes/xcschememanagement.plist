@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PropertyWatch-NMRangeSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PropertyWatch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7C40C180B586476A905C8DBF</key>
+		<key>1E7A323B30B54EDDAA94F379</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAF978FED632436B89270DA5</key>
+		<key>29F3121766244BB79B831895</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9AFCF317DF74B43AA2EC286</key>
 		<dict>
 			<key>primary</key>
 			<true/>

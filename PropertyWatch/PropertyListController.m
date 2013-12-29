@@ -22,7 +22,7 @@
 
 -(void)viewDidLoad
 {
-    self.navigationItem.hidesBackButton = YES;
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

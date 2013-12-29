@@ -48,3 +48,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 0
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// NMRangeSlider
+#define COCOAPODS_POD_AVAILABLE_NMRangeSlider
+#define COCOAPODS_VERSION_MAJOR_NMRangeSlider 1
+#define COCOAPODS_VERSION_MINOR_NMRangeSlider 1
+#define COCOAPODS_VERSION_PATCH_NMRangeSlider 1
+
