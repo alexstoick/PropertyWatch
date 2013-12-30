@@ -15,6 +15,7 @@
     [super viewDidAppear:animated];
     [self configureBedroomSlider];
     [self configureRentSlider] ;
+    self.submitButton.enabled = NO ;
 }
 
 -(void) configureRentSlider
@@ -60,6 +61,27 @@
                                 NSLog(@"going back to main view") ;
                              }
      ];
+}
+- (IBAction)textfieldDidChange:(UITextField *)textField {
+
+    NSLog(@"edit %d " , textField.text.length ) ;
+
+    if ( textField.text.length > 0 )
+    {
+        self.submitButton.enabled = YES ;
+    }
+    else
+    {
+        self.submitButton.enabled = NO ;
+    }
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [textField resignFirstResponder];
+    [self submitButtonPressed:self.submitButton];
+    return YES ;
 }
 
 @end

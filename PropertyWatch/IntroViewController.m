@@ -10,25 +10,19 @@
 #import "PropertyDataSource.h"
 #import "AFNetworking.h"
 #import "Zone.h"
+#import "ZoneDataSource.h"
 
 @interface IntroViewController()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong,nonatomic) AFHTTPRequestOperationManager * manager ;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong,nonatomic) NSArray * zones ;
+@property (assign,nonatomic) BOOL connectionProblem ;
 
 @end
 
 @implementation IntroViewController
 
--(AFHTTPRequestOperationManager * ) manager {
-    if ( ! _manager )
-    {
-        _manager = [AFHTTPRequestOperationManager manager];
-    }
-    return _manager ;
-}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -44,51 +38,32 @@
         NSLog ( @"got list of properties" ) ;
     }];
     
-    //load zones
-    
-    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
-    
-    [self.manager GET:url
-           parameters:nil
-              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  
-                  NSArray * zonesFromJson = [responseObject valueForKey:@"zones" ];
-                  NSMutableArray * zonesArray = [[NSMutableArray alloc] init];
-                  
-                  for ( NSDictionary * zone in zonesFromJson ) {
-                      
-                      Zone * currentZone = [[Zone alloc] init];
-                      
-                      currentZone.id = [[zone valueForKey:@"id"] integerValue];
-                      currentZone.postcode = [zone valueForKey:@"postcode"] ;
-                      
-                      [zonesArray addObject:currentZone ] ;
-                  }
-                  
-                  self.zones = zonesArray ;
-                  [self.tableView reloadData];
-                  [self.activityIndicator stopAnimating];
-                  
-                  NSLog ( @"Loaded the user's info" );
-                  
-              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  NSLog ( @"Failure in getting the user's info" );
-              }
-     ] ;
-    
+    [[ZoneDataSource getInstance] parseZoneListWithCompletion:^(BOOL success) {
+        self.connectionProblem = ! success;
+        [self.tableView reloadData];
+        [self.activityIndicator stopAnimating];
+    }];
+ 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.zones count] ;
+    if ( self.connectionProblem )
+        return 1;
+    return [[ZoneDataSource getInstance].zones count] ;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ( self.connectionProblem )
+    {
+        UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"connectionProblemTableCell"] ;
+        return cell ;
+    }
     
     UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"basicTableCell" ] ;
     
-    Zone * currentZone = [self.zones objectAtIndex:indexPath.row];
+    Zone * currentZone = [[ZoneDataSource getInstance].zones objectAtIndex:indexPath.row];
     
     cell.textLabel.text = currentZone.postcode ;
     return cell ;
