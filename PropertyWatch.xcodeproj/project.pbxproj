@@ -10,6 +10,8 @@
 		73D351C4850A4F7781CB3B06 /* libPods-PropertyWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C91FB3C3884C4BA536B03B /* libPods-PropertyWatch.a */; };
 		7D0625661870A00F003AD34A /* ZoneEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0625651870A00F003AD34A /* ZoneEditController.m */; };
 		7D06256918716A7D003AD34A /* ZoneDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D06256818716A7D003AD34A /* ZoneDataSource.m */; };
+		7D06256E1871DEAA003AD34A /* OBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D06256C1871DEAA003AD34A /* OBAlert.m */; };
+		7D06256F1871DEAA003AD34A /* UIButton+ALBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D06256D1871DEAA003AD34A /* UIButton+ALBlock.m */; };
 		7D762209186C16EB00460957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D762208186C16EB00460957 /* Foundation.framework */; };
 		7D76220B186C16EB00460957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76220A186C16EB00460957 /* CoreGraphics.framework */; };
 		7D76220D186C16EB00460957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76220C186C16EB00460957 /* UIKit.framework */; };
@@ -53,6 +55,9 @@
 		7D0625651870A00F003AD34A /* ZoneEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneEditController.m; sourceTree = "<group>"; };
 		7D06256718716A7D003AD34A /* ZoneDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneDataSource.h; sourceTree = "<group>"; };
 		7D06256818716A7D003AD34A /* ZoneDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneDataSource.m; sourceTree = "<group>"; };
+		7D06256B1871DEAA003AD34A /* OBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBAlert.h; sourceTree = "<group>"; };
+		7D06256C1871DEAA003AD34A /* OBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBAlert.m; sourceTree = "<group>"; };
+		7D06256D1871DEAA003AD34A /* UIButton+ALBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ALBlock.m"; sourceTree = "<group>"; };
 		7D762205186C16EB00460957 /* PropertyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropertyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D762208186C16EB00460957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D76220A186C16EB00460957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +163,16 @@
 			name = "Intro View";
 			sourceTree = "<group>";
 		};
+		7D06256A1871DEAA003AD34A /* OBAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				7D06256B1871DEAA003AD34A /* OBAlert.h */,
+				7D06256C1871DEAA003AD34A /* OBAlert.m */,
+				7D06256D1871DEAA003AD34A /* UIButton+ALBlock.m */,
+			);
+			path = OBAlertView;
+			sourceTree = "<group>";
+		};
 		7D7621FC186C16EA00460957 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +229,7 @@
 		7D762211186C16EB00460957 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D06256A1871DEAA003AD34A /* OBAlertView */,
 				7D762219186C16EB00460957 /* AppDelegate.h */,
 				7D76221A186C16EB00460957 /* AppDelegate.m */,
 				7D762212186C16EB00460957 /* PropertyWatch-Info.plist */,
@@ -397,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D76224E186C1AA000460957 /* PropertyListController.m in Sources */,
+				7D06256E1871DEAA003AD34A /* OBAlert.m in Sources */,
 				7D0625661870A00F003AD34A /* ZoneEditController.m in Sources */,
 				7DAC083B186E24D000DF7313 /* PropertyDetailController.m in Sources */,
 				7D76221B186C16EB00460957 /* AppDelegate.m in Sources */,
@@ -408,6 +425,7 @@
 				7DF2956B1870310200E6214A /* Zone.m in Sources */,
 				7D762221186C16EB00460957 /* PropertyWatch.xcdatamodeld in Sources */,
 				7D06256918716A7D003AD34A /* ZoneDataSource.m in Sources */,
+				7D06256F1871DEAA003AD34A /* UIButton+ALBlock.m in Sources */,
 				7D762248186C17E100460957 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
