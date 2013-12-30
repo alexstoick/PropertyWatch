@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73D351C4850A4F7781CB3B06 /* libPods-PropertyWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C91FB3C3884C4BA536B03B /* libPods-PropertyWatch.a */; };
+		7D0625661870A00F003AD34A /* ZoneEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0625651870A00F003AD34A /* ZoneEditController.m */; };
 		7D762209186C16EB00460957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D762208186C16EB00460957 /* Foundation.framework */; };
 		7D76220B186C16EB00460957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76220A186C16EB00460957 /* CoreGraphics.framework */; };
 		7D76220D186C16EB00460957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D76220C186C16EB00460957 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		19C91FB3C3884C4BA536B03B /* libPods-PropertyWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PropertyWatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D0625641870A00F003AD34A /* ZoneEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneEditController.h; sourceTree = "<group>"; };
+		7D0625651870A00F003AD34A /* ZoneEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneEditController.m; sourceTree = "<group>"; };
 		7D762205186C16EB00460957 /* PropertyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropertyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D762208186C16EB00460957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D76220A186C16EB00460957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,6 +117,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D06256018709F8F003AD34A /* Property List and Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D76224C186C1AA000460957 /* PropertyListController.h */,
+				7D76224D186C1AA000460957 /* PropertyListController.m */,
+				7DAC0830186D9D5B00DF7313 /* PropertyTableViewCell.h */,
+				7DAC0831186D9D5B00DF7313 /* PropertyTableViewCell.m */,
+			);
+			name = "Property List and Table Cell";
+			sourceTree = "<group>";
+		};
+		7D06256118709FA0003AD34A /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				7DF29566187024F400E6214A /* MapViewController.h */,
+				7DF29567187024F400E6214A /* MapViewController.m */,
+			);
+			name = "Map View";
+			sourceTree = "<group>";
+		};
+		7D06256218709FB1003AD34A /* Property Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7DAC0839186E24D000DF7313 /* PropertyDetailController.h */,
+				7DAC083A186E24D000DF7313 /* PropertyDetailController.m */,
+			);
+			name = "Property Detail";
+			sourceTree = "<group>";
+		};
+		7D06256318709FCD003AD34A /* Intro View */ = {
+			isa = PBXGroup;
+			children = (
+				7D762246186C17E100460957 /* IntroViewController.h */,
+				7D762247186C17E100460957 /* IntroViewController.m */,
+			);
+			name = "Intro View";
+			sourceTree = "<group>";
+		};
 		7D7621FC186C16EA00460957 = {
 			isa = PBXGroup;
 			children = (
@@ -151,20 +192,16 @@
 		7D762210186C16EB00460957 /* PropertyWatch */ = {
 			isa = PBXGroup;
 			children = (
+				7D0625641870A00F003AD34A /* ZoneEditController.h */,
+				7D0625651870A00F003AD34A /* ZoneEditController.m */,
+				7D06256118709FA0003AD34A /* Map View */,
 				7DAC082F186C1F8200DF7313 /* Data Sources */,
 				7DAC082E186C1F7800DF7313 /* Models */,
-				7D76224C186C1AA000460957 /* PropertyListController.h */,
-				7D76224D186C1AA000460957 /* PropertyListController.m */,
-				7DAC0839186E24D000DF7313 /* PropertyDetailController.h */,
-				7DAC083A186E24D000DF7313 /* PropertyDetailController.m */,
-				7D76221C186C16EB00460957 /* Main.storyboard */,
-				7DF29566187024F400E6214A /* MapViewController.h */,
-				7DF29567187024F400E6214A /* MapViewController.m */,
-				7DAC0830186D9D5B00DF7313 /* PropertyTableViewCell.h */,
-				7DAC0831186D9D5B00DF7313 /* PropertyTableViewCell.m */,
-				7D762246186C17E100460957 /* IntroViewController.h */,
-				7D762247186C17E100460957 /* IntroViewController.m */,
+				7D06256018709F8F003AD34A /* Property List and Table Cell */,
+				7D06256218709FB1003AD34A /* Property Detail */,
+				7D06256318709FCD003AD34A /* Intro View */,
 				7D762228186C16EB00460957 /* Images.xcassets */,
+				7D76221C186C16EB00460957 /* Main.storyboard */,
 				7D76221F186C16EB00460957 /* PropertyWatch.xcdatamodeld */,
 				7D762211186C16EB00460957 /* Supporting Files */,
 			);
@@ -355,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D76224E186C1AA000460957 /* PropertyListController.m in Sources */,
+				7D0625661870A00F003AD34A /* ZoneEditController.m in Sources */,
 				7DAC083B186E24D000DF7313 /* PropertyDetailController.m in Sources */,
 				7D76221B186C16EB00460957 /* AppDelegate.m in Sources */,
 				7DAC0832186D9D5B00DF7313 /* PropertyTableViewCell.m in Sources */,
