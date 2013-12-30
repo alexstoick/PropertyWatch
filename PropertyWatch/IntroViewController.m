@@ -8,9 +8,9 @@
 
 #import "IntroViewController.h"
 #import "PropertyDataSource.h"
-#import "AFNetworking.h"
 #import "Zone.h"
 #import "ZoneDataSource.h"
+#import "OBAlert.h"
 
 @interface IntroViewController()
 
@@ -40,6 +40,20 @@
     
     [[ZoneDataSource getInstance] parseZoneListWithCompletion:^(BOOL success) {
         self.connectionProblem = ! success;
+        if ( [[ZoneDataSource getInstance].zones count] == 0 )
+        {
+            //most likely a new user
+
+            OBAlert *alert = [[OBAlert alloc] initInViewController:self];
+            [alert showAlertWithText:@"It appears that you have no zones. Lets start by adding some!"
+                           titleText:@"Welcome!"
+                          buttonText:@"Add a zone"
+                               onTap:^{
+                                   [self performSegueWithIdentifier:@"IntroViewToZoneEdit"
+                                                              sender:self];
+                               }];
+        }
+        
         [self.tableView reloadData];
         [self.activityIndicator stopAnimating];
     }];

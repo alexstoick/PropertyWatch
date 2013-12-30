@@ -11,8 +11,18 @@
 // https://gist.github.com/joshdholtz/2468899
 // See UIButton+Block.m
 
-#import "UIButton+ALBlock.h"
-#import "/usr/include/objc/runtime.h"
+#import <objc/runtime.h>
+
+#define kUIButtonBlockTouchUpInside @"TouchInside"
+
+
+@interface UIButton (ALBlock)
+
+@property (nonatomic, strong) NSMutableDictionary *actions;
+
+- (void) setAction:(NSString*)action withBlock:(void(^)())block;
+
+@end
 
 @implementation UIButton (ALBlock)
 

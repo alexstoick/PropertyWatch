@@ -75,7 +75,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="igS-FI-8nR"/>
                         <barButtonItem systemItem="add" id="ms4-7Y-eBq">
                             <connections>
-                                <segue destination="INg-nu-IcL" kind="modal" id="FyF-UK-jh4"/>
+                                <segue destination="INg-nu-IcL" kind="modal" identifier="IntroViewToZoneEdit" id="FyF-UK-jh4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="FeF-ym-bJi"/>
