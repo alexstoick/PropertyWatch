@@ -29,6 +29,7 @@
     [super viewDidAppear:animated];
     
     [self.navigationController setToolbarHidden:NO animated:NO];
+    [self.tableView reloadData];
 }
 
 -(void)viewDidLoad
@@ -40,7 +41,7 @@
     
     [[ZoneDataSource getInstance] parseZoneListWithCompletion:^(BOOL success) {
         self.connectionProblem = ! success;
-        if ( [[ZoneDataSource getInstance].zones count] == 0 )
+        if ( !self.connectionProblem && [[ZoneDataSource getInstance].zones count] == 0 )
         {
             //most likely a new user
 
@@ -49,6 +50,7 @@
                            titleText:@"Welcome!"
                           buttonText:@"Add a zone"
                                onTap:^{
+                                   [alert removeAlert];
                                    [self performSegueWithIdentifier:@"IntroViewToZoneEdit"
                                                               sender:self];
                                }];

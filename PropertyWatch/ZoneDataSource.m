@@ -46,21 +46,8 @@ static ZoneDataSource * _zoneDataSource ;
     [self.manager GET:url
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  
-                  NSArray * zonesFromJson = [responseObject valueForKey:@"zones" ];
-                  NSMutableArray * zonesArray = [[NSMutableArray alloc] init];
-                  
-                  for ( NSDictionary * zone in zonesFromJson ) {
-                      
-                      Zone * currentZone = [[Zone alloc] init];
-                      
-                      currentZone.id = [[zone valueForKey:@"id"] integerValue];
-                      currentZone.postcode = [zone valueForKey:@"postcode"] ;
-                      
-                      [zonesArray addObject:currentZone ] ;
-                  }
-                  
-                  self.zones = zonesArray ;
+
+                  self.zones = [self transformJSONObjectToArray:[responseObject valueForKey:@"zones" ]];
                   
                   completionBlock(YES);
                   
@@ -72,16 +59,33 @@ static ZoneDataSource * _zoneDataSource ;
 
 }
 
+-(NSArray *) transformJSONObjectToArray:(NSArray *)zonesFromJSON
+{
+    NSMutableArray * zonesArray = [[NSMutableArray alloc] init];
+
+    for ( NSDictionary * zone in zonesFromJSON ) {
+
+        Zone * currentZone = [[Zone alloc] init];
+
+        currentZone.id = [[zone valueForKey:@"id"] integerValue];
+        currentZone.postcode = [zone valueForKey:@"postcode"] ;
+
+        [zonesArray addObject:currentZone ] ;
+    }
+
+    return zonesArray;
+}
+
 - (void)addZone:(Zone *)newZone withCompletionBlock:(void (^)(BOOL))completionBlock {
 
     NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
 
-    NSDictionary * params = [NSDictionary dictionaryWithObject:@"zone" forKey:newZone.postcode] ;
+    NSDictionary * params = [NSDictionary dictionaryWithObject:newZone.postcode forKey:@"zone"] ;
 
     [self.manager PATCH:url
              parameters:params
                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    self.zones = [responseObject valueForKey:@"zones"] ;
+                    self.zones = [self transformJSONObjectToArray:[responseObject valueForKey:@"zones"] ];
                     completionBlock(YES);
              }
                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
