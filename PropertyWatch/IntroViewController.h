@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IntroViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface IntroViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SWTableViewCellDelegate>
 
 @end
 

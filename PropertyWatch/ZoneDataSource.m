@@ -69,7 +69,6 @@ static ZoneDataSource * _zoneDataSource ;
 
         currentZone.id = [[zone valueForKey:@"id"] integerValue];
         currentZone.postcode = [zone valueForKey:@"postcode"] ;
-
         [zonesArray addObject:currentZone ] ;
     }
 
@@ -92,6 +91,16 @@ static ZoneDataSource * _zoneDataSource ;
                     completionBlock(NO);
              }
     ] ;
+}
+
+- (void)deleteZoneAtIndex:(Zone *)zone withCompletionBlock:(void (^)(BOOL))completionBlock {
+
+    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
+
+    NSDictionary * params = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:zone.id]
+                                                        forKey:@"zone"] ;
+
+    NSLog(@"%@" , params ) ;
 
 }
 @end

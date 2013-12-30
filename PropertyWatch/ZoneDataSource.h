@@ -16,4 +16,5 @@
 +(ZoneDataSource *) getInstance ;
 -(void) parseZoneListWithCompletion:(void (^)(BOOL))completionBlock;
 -(void) addZone:(Zone *) newZone withCompletionBlock:(void(^)(BOOL))completionBlock;
+-(void) deleteZoneAtIndex:(Zone *) zone withCompletionBlock:(void(^)(BOOL))completionBlock;
 @end

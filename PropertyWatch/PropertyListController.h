@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PropertyTableViewCell.h"
+#import "Zone.h"
 
 @interface PropertyListController : UITableViewController
 
-
+@property (strong, nonatomic) Zone * currentZone ;
 
 @end

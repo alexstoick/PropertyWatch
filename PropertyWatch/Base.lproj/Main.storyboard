@@ -21,28 +21,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicTableCell" textLabel="uce-Mg-4eN" style="IBUITableViewCellStyleDefault" id="icy-jc-chD">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="icy-jc-chD" id="AWg-iy-y4L">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uce-Mg-4eN">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="bkX-U3-fgs" kind="push" id="ww9-cH-zVt"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="connectionProblemTableCell" id="MgF-oS-ro4">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MgF-oS-ro4" id="snx-rH-wNi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -85,6 +65,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="jwS-6c-Coe" id="jWD-6n-OqM"/>
                         <outlet property="tableView" destination="be6-dc-V4k" id="FnR-bv-rG8"/>
+                        <segue destination="bkX-U3-fgs" kind="push" identifier="IntroViewToPropertiesView" id="hK9-bu-bz5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWw-Ko-PNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +202,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhA-lh-C8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="185"/>
+            <point key="canvasLocation" x="659" y="185"/>
         </scene>
         <!--Zone Edit Controller-->
         <scene sceneID="pTz-Fk-dOd">
@@ -330,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-MN-xDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595" y="201"/>
+            <point key="canvasLocation" x="1653" y="185"/>
         </scene>
         <!--Property Detail Controller - Property Detail-->
         <scene sceneID="0qO-nD-5Ir">
@@ -554,7 +535,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9L-rD-pnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="201"/>
+            <point key="canvasLocation" x="1168" y="185"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R1y-mL-GNv">
