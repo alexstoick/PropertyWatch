@@ -277,8 +277,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="JRR-e8-khP" eventType="valueChanged" id="UAP-lf-aVA"/>
-                                    <action selector="textfieldDidChange:" destination="JRR-e8-khP" eventType="editingChanged" id="kDL-Mm-DCk"/>
+                                    <action selector="textFieldDidChange:" destination="JRR-e8-khP" eventType="editingChanged" id="kDL-Mm-DCk"/>
                                     <outlet property="delegate" destination="JRR-e8-khP" id="LkI-2N-XrH"/>
                                 </connections>
                             </textField>
@@ -287,7 +286,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dlI-jc-3Ko">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nnh-gg-JJ8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nnh-gg-JJ8">
+                            <connections>
+                                <action selector="submitButtonPressed:" destination="JRR-e8-khP" id="7GX-Nz-zQS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

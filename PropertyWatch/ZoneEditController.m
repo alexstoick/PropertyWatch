@@ -7,6 +7,9 @@
 //
 
 #import "ZoneEditController.h"
+#import "Zone.h"
+#import "ZoneDataSource.h"
+#import "ProgressHUD.h"
 
 @implementation ZoneEditController
 
@@ -53,18 +56,46 @@
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
-    
-    // need to add current values to the zones
-    
+
+    Zone * newZone = [[Zone alloc] init];
+    newZone.postcode = self.postcodeTextField.text ;
+
+    newZone.min_bedrooms = [self.bedroomSlider lowerValue];
+    newZone.max_bedrooms = [self.bedroomSlider upperValue];
+
+    newZone.min_rent = [self.rentSlider lowerValue];
+    newZone.max_rent = [self.rentSlider upperValue];
+
+    [ProgressHUD show:@"Sending your data over ..."];
+
+    [[ZoneDataSource getInstance] addZone:newZone
+                      withCompletionBlock:^(BOOL success) {
+
+                          if ( success )
+                            [ProgressHUD showSuccess:@"Request completed!"];
+                          else
+                            [ProgressHUD showError:@"There was an errow with the request"];
+                          [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                           target:self
+                                                         selector:@selector(hideModalView:)
+                                                         userInfo:nil
+                                                          repeats:NO];
+                      }
+    ];
+}
+
+-(void)hideModalView:(NSTimer*)timer{
+
     [self dismissViewControllerAnimated:YES
                              completion:^{
-                                NSLog(@"going back to main view") ;
+                                 NSLog(@"going back to main view") ;
                              }
-     ];
-}
-- (IBAction)textfieldDidChange:(UITextField *)textField {
+    ];
 
-    NSLog(@"edit %d " , textField.text.length ) ;
+
+}
+
+- (IBAction)textFieldDidChange:(UITextField *)textField {
 
     if ( textField.text.length > 0 )
     {
@@ -81,6 +112,7 @@
 
     [textField resignFirstResponder];
     [self submitButtonPressed:self.submitButton];
+
     return YES ;
 }
 

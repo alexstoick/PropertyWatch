@@ -18,13 +18,16 @@ PODS:
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - NMRangeSlider (1.1.1)
+  - ProgressHUD (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - NMRangeSlider (~> 1.1.1)
+  - ProgressHUD (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   NMRangeSlider: b5124e5842c6a8496fcfc6db471df087b5d32b7f
+  ProgressHUD: f09230ed14bb5748367f458e6f90e7c1f67e6c8f
 
 COCOAPODS: 0.29.0

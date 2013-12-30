@@ -42,6 +42,13 @@ install_resource()
   esac
 }
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme/slider-default_trackBackground@2x.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/1-slider-default7-handle.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/1-slider-default7-handle@2x.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/2-slider-default7-handle.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/2-slider-default7-handle@2x.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/3-slider-default7-handle.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/3-slider-default7-handle@2x.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/dsa.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default-handle-highlighted.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default-handle-highlighted@2x.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default-handle.png"
@@ -59,6 +66,7 @@ install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default7-trac
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default7-trackBackground@2x.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default7-trackCrossedOver.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default7-trackCrossedOver@2x.png"
+install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-default7.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-handle-highlighted.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-handle-highlighted@2x.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-handle.png"
@@ -67,6 +75,7 @@ install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-track.p
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-track@2x.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-trackBackground.png"
 install_resource "NMRangeSlider/NMRangeSlider/DefaultTheme7/slider-metal-trackBackground@2x.png"
+install_resource "ProgressHUD/ProgressHUD/ProgressHUD.bundle"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then

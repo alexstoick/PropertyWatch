@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Zone.h"
 
 @interface ZoneDataSource : NSObject
 
@@ -14,5 +15,5 @@
 
 +(ZoneDataSource *) getInstance ;
 -(void) parseZoneListWithCompletion:(void (^)(BOOL))completionBlock;
-
+-(void) addZone:(Zone *) newZone withCompletionBlock:(void(^)(BOOL))completionBlock;
 @end

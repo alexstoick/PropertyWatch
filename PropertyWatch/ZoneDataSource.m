@@ -70,7 +70,24 @@ static ZoneDataSource * _zoneDataSource ;
               }
      ] ;
 
-    
 }
 
+- (void)addZone:(Zone *)newZone withCompletionBlock:(void (^)(BOOL))completionBlock {
+
+    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
+
+    NSDictionary * params = [NSDictionary dictionaryWithObject:@"zone" forKey:newZone.postcode] ;
+
+    [self.manager PATCH:url
+             parameters:params
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    self.zones = [responseObject valueForKey:@"zones"] ;
+                    completionBlock(YES);
+             }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    completionBlock(NO);
+             }
+    ] ;
+
+}
 @end
