@@ -9,7 +9,6 @@
 #import "ZoneEditController.h"
 #import "Zone.h"
 #import "ZoneDataSource.h"
-#import "ProgressHUD.h"
 
 @implementation ZoneEditController
 
@@ -66,15 +65,9 @@
     newZone.min_rent = [self.rentSlider lowerValue];
     newZone.max_rent = [self.rentSlider upperValue];
 
-    [ProgressHUD show:@"Sending your data over ..."];
-
     [[ZoneDataSource getInstance] addZone:newZone
                       withCompletionBlock:^(BOOL success) {
 
-                          if ( success )
-                            [ProgressHUD showSuccess:@"Request completed!"];
-                          else
-                            [ProgressHUD showError:@"There was an errow with the request"];
                           [NSTimer scheduledTimerWithTimeInterval:1.0
                                                            target:self
                                                          selector:@selector(hideModalView:)

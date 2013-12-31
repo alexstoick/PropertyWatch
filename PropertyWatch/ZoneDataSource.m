@@ -9,6 +9,7 @@
 #import "ZoneDataSource.h"
 #import "Zone.h"
 #import "AFNetworking.h"
+#import "ProgressHUD.h"
 
 static ZoneDataSource * _zoneDataSource ;
 
@@ -77,6 +78,8 @@ static ZoneDataSource * _zoneDataSource ;
 
 - (void)addZone:(Zone *)newZone withCompletionBlock:(void (^)(BOOL))completionBlock {
 
+    [ProgressHUD show:@"Sending your data over ..."];
+
     NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
 
     NSDictionary * params = [NSDictionary dictionaryWithObject:newZone.postcode forKey:@"zone"] ;
@@ -85,9 +88,11 @@ static ZoneDataSource * _zoneDataSource ;
              parameters:params
                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     self.zones = [self transformJSONObjectToArray:[responseObject valueForKey:@"zones"] ];
+                    [ProgressHUD showSuccess:@"Request completed!"];
                     completionBlock(YES);
              }
                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [ProgressHUD showError:@"There was an errow with the request"];
                     completionBlock(NO);
              }
     ] ;
@@ -100,7 +105,19 @@ static ZoneDataSource * _zoneDataSource ;
     NSDictionary * params = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:zone.id]
                                                         forKey:@"zone"] ;
 
-    NSLog(@"%@" , params ) ;
+    [ProgressHUD show:@"Sending your data over ..."];
 
+    [self.manager DELETE:url
+              parameters:params
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     self.zones = [self transformJSONObjectToArray:[responseObject valueForKey:@"zones"]];
+                     [ProgressHUD showSuccess:@"Request completed!"];
+                     completionBlock(YES);
+                 }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     [ProgressHUD showError:@"There was an errow with the request"];
+                     completionBlock(NO);
+                 }
+    ];
 }
 @end

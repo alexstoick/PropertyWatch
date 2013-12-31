@@ -130,15 +130,16 @@
 
     //delete button pressed
 
-    NSLog(@"dsa") ;
-
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell] ;
 
     ZoneDataSource * zoneDataSource = [ZoneDataSource getInstance] ;
 
     [zoneDataSource deleteZoneAtIndex:[zoneDataSource.zones objectAtIndex:indexPath.row]
                   withCompletionBlock:^(BOOL success) {
-                      NSLog(@"deleted some stuff") ;
+                      if ( success )
+                      {
+                          [self.tableView reloadData];
+                      }
                   }
     ];
 
