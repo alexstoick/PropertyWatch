@@ -9,12 +9,14 @@
 #import "PropertyDataSource.h"
 #import "AFNetworking.h"
 #import "Property.h"
+#import "Zone.h"
 
 static PropertyDataSource * _propertyDataSource;
 
 @interface PropertyDataSource()
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager * manager ;
+@property (assign,nonatomic) NSInteger dataForZone ;
 
 @end
 
@@ -39,14 +41,16 @@ static PropertyDataSource * _propertyDataSource;
     return _manager ;
 }
 
--(void)parsePropertyListWithCompletion:(void (^)(BOOL))completionBlock
+-(void)parsePropertyListForZone:(Zone *) zone WithCompletion:(void (^)(BOOL))completionBlock
 {
     
-    if ( [self.propertyList count] )
+    if ( self.dataForZone == zone.id )
     {
         completionBlock(YES);
         return;
     }
+
+    self.dataForZone = zone.id ;
     
     NSArray * keys = [NSArray arrayWithObjects: @"postcode" ,
                       @"api_key", @"listing_status" , @"page_size" , nil];
@@ -54,41 +58,50 @@ static PropertyDataSource * _propertyDataSource;
                         @"rent" , @"10" , nil] ;
     NSDictionary * params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 
-    NSLog ( @"%@" , params ) ;
-    
-    NSString * url = @"http://api.zoopla.co.uk/api/v1/property_listings.json" ;
-    
-//    url = @"http://localhost/date.json";
+    NSString * url = [NSString stringWithFormat: @"http://propertywatch.fwd.wf/zone/%d/properties",
+                                                         zone.id];
 
-    [self.manager GET:url parameters:params
+    NSLog ( @"%@" , url ) ;
+    self.propertyList = nil ;
+    [self.manager GET:url parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                
                   NSMutableArray * listings = [NSMutableArray arrayWithArray:
-                                               [responseObject valueForKey:@"listing"]] ;
+                                               [responseObject valueForKey:@"properties"]] ;
                   
                   NSMutableArray * propertyArray = [[NSMutableArray alloc] init];
                   
                   for ( NSDictionary * property in listings) {
                       
                       Property * currentProperty = [[Property alloc] init];
-                      currentProperty.thumbnail_url = [property valueForKey:@"thumbnail_url"];
-                      currentProperty.address = [property valueForKey:@"displayable_address"] ;
+                      /* Images */
+                      currentProperty.thumbnail_url = [property valueForKey:@"thumbnailUrl"];
+                      currentProperty.image_url = [property valueForKey:@"imageUrl"];
+
+                      /* Address info */
+                      currentProperty.address = [property valueForKey:@"address"] ;
+                      currentProperty.street_name = [property valueForKey:@"streetName"];
+
+                      /* Description */
                       currentProperty.description = [property valueForKey:@"description"];
-                      currentProperty.short_description = [property valueForKey:@"short_description"];
-                      currentProperty.image_url = [property valueForKey:@"image_url"];
-                      currentProperty.number_of_bedrooms = [[property valueForKey:@"num_bedrooms"] integerValue];
-                      currentProperty.details_url = [property valueForKey:@"details_url"];
-                      currentProperty.street_name = [property valueForKey:@"street_name"];
-                      currentProperty.number_of_bathrooms = [[property valueForKey:@"num_bathrooms"] integerValue];
-                      currentProperty.agentName = [property valueForKey:@"agent_name"];
-                      currentProperty.agentPhoneNo = [property valueForKey:@"agent_phone"];
+                      currentProperty.short_description = [property valueForKey:@"shortDescription"];
+
+                      /* Agent info */
+                      currentProperty.agentName = [property valueForKey:@"agentName"];
+                      currentProperty.agentPhoneNo = [property valueForKey:@"agentPhoneNo"];
+
+                      /* House info */
+                      currentProperty.number_of_bedrooms = [[property valueForKey:@"number_of_bedrooms"] integerValue];
+                      currentProperty.number_of_bathrooms = [[property valueForKey:@"number_of_bathrooms"] integerValue];
+                      currentProperty.rent_a_week = [[property valueForKey:@"rent_a_week"] integerValue];
+
+                      /* Location info */
                       currentProperty.longitude = [[property valueForKey:@"longtitude"] floatValue] ;
                       currentProperty.latitude = [[property valueForKey:@"latitude"] floatValue];
-                      
-                      
-                      NSDictionary * rentalPrices = [property valueForKey:@"rental_prices" ];
-                      currentProperty.rent_a_week = [[rentalPrices valueForKey:@"per_week"] integerValue];
-                      
+
+                      /* Additional info */
+                      currentProperty.details_url = [property valueForKey:@"detailsUrl"];
+
                       [propertyArray addObject:currentProperty];
                   }
                   

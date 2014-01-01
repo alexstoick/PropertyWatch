@@ -37,10 +37,6 @@
 -(void)viewDidLoad
 {
     
-    [[PropertyDataSource getInstance] parsePropertyListWithCompletion:^(BOOL success) {
-        NSLog ( @"got list of properties" ) ;
-    }];
-    
     [[ZoneDataSource getInstance] parseZoneListWithCompletion:^(BOOL success) {
         self.connectionProblem = ! success;
         if ( !self.connectionProblem && [[ZoneDataSource getInstance].zones count] == 0 )
@@ -120,8 +116,14 @@
 
     if ([segue.identifier isEqualToString:@"IntroViewToPropertiesView"] )
     {
+        NSLog(@"dsadas") ;
         PropertyListController * propertyListController = [segue destinationViewController] ;
         propertyListController.currentZone = (Zone *) sender ;
+        [propertyListController.activityIndicator startAnimating];
+        [[PropertyDataSource getInstance] parsePropertyListForZone: propertyListController.currentZone WithCompletion:^(BOOL success) {
+            [propertyListController.tableView reloadData];
+            [propertyListController.activityIndicator stopAnimating];
+        }];
     }
 
 }

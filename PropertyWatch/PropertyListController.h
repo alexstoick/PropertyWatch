@@ -13,5 +13,6 @@
 @interface PropertyListController : UITableViewController
 
 @property (strong, nonatomic) Zone * currentZone ;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

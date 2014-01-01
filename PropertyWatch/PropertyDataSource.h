@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Zone.h"
 
 @interface PropertyDataSource : NSObject
 
@@ -14,6 +15,6 @@
 
 @property (strong,nonatomic) NSArray * propertyList ;
 
-- (void) parsePropertyListWithCompletion:(void (^)(BOOL success)) completionBlock;
+-(void)parsePropertyListForZone:(Zone *) zone WithCompletion:(void (^)(BOOL))completionBlock;
 
 @end
