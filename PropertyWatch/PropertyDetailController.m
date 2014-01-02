@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bathroomImage;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfBathroomsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *addressImage;
-@property (weak, nonatomic) IBOutlet UITextView *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *priceImage;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
