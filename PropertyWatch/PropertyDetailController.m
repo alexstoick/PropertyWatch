@@ -121,9 +121,9 @@
                 newFrame.size = textViewSize ;
                 [self.addressLabel setFrame:newFrame];
                 if ( textViewSize.height < 44 )
-                    return 44 ;
+                    return 64 ;
                 else
-                    return textViewSize.height ;
+                    return textViewSize.height +20 ;
             }
             return 44 ; break ;
 

@@ -68,7 +68,7 @@ static ZoneDataSource * _zoneDataSource ;
 
         Zone * currentZone = [[Zone alloc] init];
 
-        currentZone.id = [[zone valueForKey:@"id"] integerValue];
+        currentZone.identifier = [[zone valueForKey:@"id"] integerValue];
         currentZone.postcode = [zone valueForKey:@"postcode"] ;
         [zonesArray addObject:currentZone ] ;
     }
@@ -82,7 +82,13 @@ static ZoneDataSource * _zoneDataSource ;
 
     NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
 
-    NSDictionary * params = [NSDictionary dictionaryWithObject:newZone.postcode forKey:@"zone"] ;
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+
+    [params setObject:newZone.postcode forKey:@"zone"];
+    [params setObject:newZone.min_bedrooms forKey:@"minBedrooms"];
+    [params setObject:newZone.max_bedrooms forKey:@"maxBedrooms"];
+    [params setObject:newZone.min_rent forKey:@"minRent"];
+    [params setObject:newZone.max_rent forKey:@"maxRent"];
 
     [self.manager PATCH:url
              parameters:params
@@ -102,10 +108,7 @@ static ZoneDataSource * _zoneDataSource ;
 
     NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
 
-    NSArray * keys = [ NSArray arrayWithObjects:@"zone",@"minBedrooms",@"maxBedrooms",@"minRent",@"maxRent", nil] ;
-    NSArray * values = [NSArray arrayWithObjects:[NSNumber numberWithInteger:zone.id],
-                         zone.min_bedrooms, zone.max_bedrooms , zone.min_rent, zone.max_rent , nil ] ;
-    NSDictionary * params = [NSDictionary dictionaryWithObject:values forKey:keys] ;
+    NSDictionary * params = @{@"zone": [NSNumber numberWithInteger:zone.identifier] } ;
 
     [ProgressHUD show:@"Sending your data over ..."];
 

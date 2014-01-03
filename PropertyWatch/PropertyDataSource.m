@@ -44,13 +44,13 @@ static PropertyDataSource * _propertyDataSource;
 -(void)parsePropertyListForZone:(Zone *) zone WithCompletion:(void (^)(BOOL))completionBlock
 {
     
-    if ( self.dataForZone == zone.id )
+    if ( self.dataForZone == zone.identifier)
     {
         completionBlock(YES);
         return;
     }
 
-    self.dataForZone = zone.id ;
+    self.dataForZone = zone.identifier;
     
     NSArray * keys = [NSArray arrayWithObjects: @"postcode" ,
                       @"api_key", @"listing_status" , @"page_size" , nil];
@@ -58,12 +58,12 @@ static PropertyDataSource * _propertyDataSource;
                         @"rent" , @"10" , nil] ;
     NSDictionary * params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 
-    NSString * url = [NSString stringWithFormat: @"http://propertywatch.fwd.wf/zone/%d/properties",
-                                                         zone.id];
+    NSString * url = [NSString stringWithFormat:@"http://propertywatch.fwd.wf/zone/%d/properties",
+                                                zone.identifier];
 
     NSLog ( @"%@" , url ) ;
     self.propertyList = nil ;
-    [self.manager GET:url parameters:nil
+    [self.manager GET:url parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                
                   NSMutableArray * listings = [NSMutableArray arrayWithArray:

@@ -17,13 +17,16 @@
 @interface IntroViewController()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (assign,nonatomic) BOOL connectionProblem ;
+@property (strong,nonatomic) UIRefreshControl * refreshControl ;
 
 @end
 
 @implementation IntroViewController
 
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self getZoneData];
+}
 
 
 -(void)viewDidAppear:(BOOL)animated
@@ -34,15 +37,14 @@
     [self.tableView reloadData];
 }
 
--(void)viewDidLoad
+- (void)getZoneData
 {
-    
     [[ZoneDataSource getInstance] parseZoneListWithCompletion:^(BOOL success) {
         self.connectionProblem = ! success;
         if ( !self.connectionProblem && [[ZoneDataSource getInstance].zones count] == 0 )
         {
             //most likely a new user
-
+            
             OBAlert *alert = [[OBAlert alloc] initInViewController:self];
             [alert showAlertWithText:@"It appears that you have no zones. Lets start by adding some!"
                            titleText:@"Welcome!"
@@ -50,13 +52,24 @@
                                onTap:^{
                                    [alert removeAlert];
                                    [self performSegueWithIdentifier:@"IntroViewToZoneEdit"
-                                                              sender:self];
+                                                             sender:self];
                                }];
         }
         
         [self.tableView reloadData];
-        [self.activityIndicator stopAnimating];
+        [self.refreshControl endRefreshing];
     }];
+}
+
+-(void)viewDidLoad
+{
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl beginRefreshing];
+
+    [self getZoneData];
  
 }
 
@@ -122,7 +135,8 @@
         [propertyListController.activityIndicator startAnimating];
         [[PropertyDataSource getInstance] parsePropertyListForZone: propertyListController.currentZone WithCompletion:^(BOOL success) {
             [propertyListController.tableView reloadData];
-            [propertyListController.activityIndicator stopAnimating];
+            [self.refreshControl endRefreshing];
+
         }];
     }
 

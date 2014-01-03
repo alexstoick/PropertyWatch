@@ -10,7 +10,7 @@
 
 @interface Zone : NSObject
 
-@property (assign,nonatomic) NSInteger id ;
+@property (assign,nonatomic) NSInteger identifier;
 @property (strong,nonatomic) NSString * postcode ;
 @property (strong,nonatomic) NSNumber * min_bedrooms ;
 @property (strong,nonatomic) NSNumber * max_bedrooms ;
