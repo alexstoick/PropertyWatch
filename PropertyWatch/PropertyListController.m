@@ -50,9 +50,19 @@
     Property * currentProperty = [[PropertyDataSource getInstance].propertyList objectAtIndex:indexPath.row] ;
     
     cell.priceLabel.text = [NSString stringWithFormat:@"%d£" , currentProperty.rent_a_week ];
-    
-    cell.numberOfBedsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms] ;
-    cell.adressLabel.text = currentProperty.street_name;
+    if ( currentProperty.number_of_bedrooms != 0 )
+        cell.numberOfBedsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms] ;
+    else
+    {
+        cell.bedroomImage.hidden = YES ;
+        cell.numberOfBedsLabel.hidden = YES ;
+    }
+
+    if ([currentProperty.street_name isEqualToString:@""])
+        cell.adressLabel.text = currentProperty.address;
+    else
+        cell.adressLabel.text = currentProperty.street_name;
+
     if ( currentProperty.number_of_bathrooms != 0 )
         cell.numberOfBathroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bathrooms];
     else

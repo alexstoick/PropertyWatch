@@ -54,7 +54,6 @@
                                        }];
     self.priceLabel.text = [NSString stringWithFormat:@"%d£" , currentProperty.rent_a_week];
     self.addressLabel.text = currentProperty.address;
-    self.numberOfBedroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms];
     self.agentNameLabel.text = currentProperty.agentName ;
     self.agentPhoneLabel.text = currentProperty.agentPhoneNo ;
     
@@ -64,6 +63,16 @@
     {
         self.bathroomImage.hidden=YES;
         self.numberOfBathroomsLabel.hidden=YES;
+    }
+    
+    if ( currentProperty.number_of_bedrooms != 0 )
+    {
+        self.numberOfBedroomsLabel.text = [NSString stringWithFormat:@"%d" , currentProperty.number_of_bedrooms];
+    }
+    else
+    {
+        self.bedroomImage.hidden = YES;
+        self.numberOfBedroomsLabel.hidden = YES ;
     }
     
     self.descriptionText.text = currentProperty.description ;
@@ -88,6 +97,14 @@
     {
         case 0: return 231; break ;
         case 1: {
+            if ( indexPath.row == 0 )
+            {
+                //check if the bedroom sign is enabled
+                if ( self.bedroomImage.hidden )
+                {
+                    return 0 ;
+                }
+            }
             if ( indexPath.row == 1 )
             {
                 //check if have the bathroom sign enabled
