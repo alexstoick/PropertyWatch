@@ -59,11 +59,11 @@
     Zone * newZone = [[Zone alloc] init];
     newZone.postcode = self.postcodeTextField.text ;
 
-    newZone.min_bedrooms = [self.bedroomSlider lowerValue];
-    newZone.max_bedrooms = [self.bedroomSlider upperValue];
+    newZone.min_bedrooms = [NSNumber numberWithFloat: [self.bedroomSlider lowerValue]];
+    newZone.max_bedrooms = [NSNumber numberWithFloat: [self.bedroomSlider upperValue]];
 
-    newZone.min_rent = [self.rentSlider lowerValue];
-    newZone.max_rent = [self.rentSlider upperValue];
+    newZone.min_rent = [NSNumber numberWithFloat: [self.rentSlider lowerValue]];
+    newZone.max_rent = [NSNumber numberWithFloat: [self.rentSlider upperValue]];
 
     [[ZoneDataSource getInstance] addZone:newZone
                       withCompletionBlock:^(BOOL success) {

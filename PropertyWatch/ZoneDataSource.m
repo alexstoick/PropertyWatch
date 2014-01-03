@@ -102,8 +102,10 @@ static ZoneDataSource * _zoneDataSource ;
 
     NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
 
-    NSDictionary * params = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:zone.id]
-                                                        forKey:@"zone"] ;
+    NSArray * keys = [ NSArray arrayWithObjects:@"zone",@"minBedrooms",@"maxBedrooms",@"minRent",@"maxRent", nil] ;
+    NSArray * values = [NSArray arrayWithObjects:[NSNumber numberWithInteger:zone.id],
+                         zone.min_bedrooms, zone.max_bedrooms , zone.min_rent, zone.max_rent , nil ] ;
+    NSDictionary * params = [NSDictionary dictionaryWithObject:values forKey:keys] ;
 
     [ProgressHUD show:@"Sending your data over ..."];
 

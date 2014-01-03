@@ -12,9 +12,9 @@
 
 @property (assign,nonatomic) NSInteger id ;
 @property (strong,nonatomic) NSString * postcode ;
-@property (assign,nonatomic) NSInteger min_bedrooms ;
-@property (assign,nonatomic) NSInteger max_bedrooms ;
-@property (assign,nonatomic) NSInteger min_rent ;
-@property (assign,nonatomic) NSInteger max_rent ;
+@property (strong,nonatomic) NSNumber * min_bedrooms ;
+@property (strong,nonatomic) NSNumber * max_bedrooms ;
+@property (strong,nonatomic) NSNumber * min_rent ;
+@property (strong,nonatomic) NSNumber * max_rent ;
 
 @end
