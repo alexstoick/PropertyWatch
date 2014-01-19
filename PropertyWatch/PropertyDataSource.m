@@ -12,6 +12,7 @@
 #import "Zone.h"
 
 static PropertyDataSource * _propertyDataSource;
+static NSString const *RailsBaseUrl = @"http://146.185.140.148";
 
 @interface PropertyDataSource()
 
@@ -58,8 +59,8 @@ static PropertyDataSource * _propertyDataSource;
                         @"rent" , @"10" , nil] ;
     NSDictionary * params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 
-    NSString * url = [NSString stringWithFormat:@"http://propertywatch.fwd.wf/zone/%d/properties",
-                                                zone.identifier];
+    NSString * url = [NSString stringWithFormat:@"%@/zone/%d/properties",
+                                                RailsBaseUrl , zone.identifier ];
 
     NSLog ( @"%@" , url ) ;
     self.propertyList = nil ;

@@ -12,6 +12,7 @@
 #import "ProgressHUD.h"
 
 static ZoneDataSource * _zoneDataSource ;
+static NSString const *RailsBaseUrl = @"http://146.185.140.148";
 
 @interface ZoneDataSource()
 
@@ -42,7 +43,7 @@ static ZoneDataSource * _zoneDataSource ;
 -(void) parseZoneListWithCompletion:(void (^)(BOOL))completionBlock
 {
     
-    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
+    NSString * url = [NSString stringWithFormat: @"%@/user/1" , RailsBaseUrl ];
     
     [self.manager GET:url
            parameters:nil
@@ -80,7 +81,7 @@ static ZoneDataSource * _zoneDataSource ;
 
     [ProgressHUD show:@"Sending your data over ..."];
 
-    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
+    NSString * url = [NSString stringWithFormat: @"%@/user/1" , RailsBaseUrl ];
 
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
@@ -106,7 +107,7 @@ static ZoneDataSource * _zoneDataSource ;
 
 - (void)deleteZoneAtIndex:(Zone *)zone withCompletionBlock:(void (^)(BOOL))completionBlock {
 
-    NSString * url = @"http://propertywatch.fwd.wf/user/1" ;
+    NSString * url = [NSString stringWithFormat: @"%@/user/1" , RailsBaseUrl ];
 
     NSDictionary * params = @{@"zone": [NSNumber numberWithInteger:zone.identifier] } ;
 

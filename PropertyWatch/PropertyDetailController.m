@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *descriptionTableCell;
 @property (strong, nonatomic) IBOutlet UITableView *detailTable;
 
+
 @property (weak, nonatomic) IBOutlet UILabel *agentNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *agentPhoneLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *phoneImage;

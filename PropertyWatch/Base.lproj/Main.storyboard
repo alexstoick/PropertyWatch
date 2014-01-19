@@ -603,7 +603,7 @@
                         <outlet property="numberOfBedroomsLabel" destination="ItJ-MG-gaE" id="oCm-DM-EF3"/>
                         <outlet property="phoneImage" destination="Ptu-M6-jAt" id="Zmc-FB-2ln"/>
                         <outlet property="priceImage" destination="oeL-t0-Hpi" id="ObZ-h4-ZJr"/>
-                        <outlet property="priceLabel" destination="XQA-Ig-niy" id="Ig1-Zu-yTw"/>
+                        <outlet property="priceLabel" destination="rCK-nX-WMZ" id="Rcq-tn-fux"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9L-rD-pnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
