@@ -9,7 +9,6 @@
 #import "SWTableViewCell.h"
 #import "IntroViewController.h"
 #import "PropertyDataSource.h"
-#import "Zone.h"
 #import "ZoneDataSource.h"
 #import "OBAlert.h"
 #import "PropertyListController.h"
@@ -129,7 +128,6 @@
 
     if ([segue.identifier isEqualToString:@"IntroViewToPropertiesView"] )
     {
-        NSLog(@"dsadas") ;
         PropertyListController * propertyListController = [segue destinationViewController] ;
         propertyListController.currentZone = (Zone *) sender ;
         [propertyListController.activityIndicator startAnimating];

@@ -47,6 +47,7 @@ static NSString const *RailsBaseUrl = @"http://146.185.140.148";
     
     if ( self.dataForZone == zone.identifier)
     {
+        NSLog(@"Same zone. Will not parse again") ;
         completionBlock(YES);
         return;
     }
@@ -62,7 +63,6 @@ static NSString const *RailsBaseUrl = @"http://146.185.140.148";
     NSString * url = [NSString stringWithFormat:@"%@/zone/%d/properties",
                                                 RailsBaseUrl , zone.identifier ];
 
-    NSLog ( @"%@" , url ) ;
     self.propertyList = nil ;
     [self.manager GET:url parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {

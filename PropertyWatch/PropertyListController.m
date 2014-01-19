@@ -16,12 +16,31 @@
 
 @interface PropertyListController()
 
+@property (strong,nonatomic) UIRefreshControl * refreshControl ;
+
 @end
+
 
 @implementation PropertyListController
 
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    // will refresh the list of properties
+    [self.refreshControl endRefreshing];
+}
+
 -(void)viewDidLoad
 {
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+
+    // get list of properties : [self getZoneData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
@@ -38,7 +57,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog ( @"COUNT : %d" , [[PropertyDataSource getInstance].propertyList count] ) ;
     return [[PropertyDataSource getInstance].propertyList count];
 }
 
